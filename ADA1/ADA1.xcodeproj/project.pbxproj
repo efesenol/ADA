@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C3BB4602BEFC02F00918F68 /* AcilDurum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BB45F2BEFC02F00918F68 /* AcilDurum.mp3 */; };
+		3C3BB4AB2BF0F22600918F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BB4A82BF0F22600918F68 /* Assets.xcassets */; };
+		3C3BB4AC2BF0F22600918F68 /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BB4A92BF0F22600918F68 /* appstore.png */; };
+		3C3BB4AD2BF0F22600918F68 /* playstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BB4AA2BF0F22600918F68 /* playstore.png */; };
+		3CE10AAA2BEA9CC600CF8050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AA92BEA9CC600CF8050 /* AppDelegate.swift */; };
+		3CE10AAC2BEA9CC600CF8050 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AAB2BEA9CC600CF8050 /* SceneDelegate.swift */; };
+		3CE10AAE2BEA9CC600CF8050 /* Anasayfa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AAD2BEA9CC600CF8050 /* Anasayfa.swift */; };
+		3CE10AB12BEA9CC600CF8050 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE10AAF2BEA9CC600CF8050 /* Main.storyboard */; };
+		3CE10AB42BEA9CC600CF8050 /* ADA1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AB22BEA9CC600CF8050 /* ADA1.xcdatamodeld */; };
+		3CE10AB62BEA9CC700CF8050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE10AB52BEA9CC700CF8050 /* Assets.xcassets */; };
+		3CE10AB92BEA9CC700CF8050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE10AB72BEA9CC700CF8050 /* LaunchScreen.storyboard */; };
+		3CE10AC12BEA9CE500CF8050 /* KayitOlSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AC02BEA9CE500CF8050 /* KayitOlSayfasi.swift */; };
+		3CE10AC32BEA9CF500CF8050 /* DepremHazirlikSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AC22BEA9CF500CF8050 /* DepremHazirlikSayfasi.swift */; };
+		3CE10AC52BEA9D0100CF8050 /* BagisSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AC42BEA9D0100CF8050 /* BagisSayfasi.swift */; };
+		3CE10AC72BEA9D0D00CF8050 /* GirisSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AC62BEA9D0D00CF8050 /* GirisSayfasi.swift */; };
+		3CE10AC92BEA9D1C00CF8050 /* EnkazİhbarSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AC82BEA9D1C00CF8050 /* EnkazİhbarSayfasi.swift */; };
+		3CE10ACB2BEA9D3000CF8050 /* HaritalarSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10ACA2BEA9D3000CF8050 /* HaritalarSayfasi.swift */; };
+		3CE10ACD2BEA9D3E00CF8050 /* HaberlerSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10ACC2BEA9D3E00CF8050 /* HaberlerSayfasi.swift */; };
+		3CE10ACF2BEA9D4B00CF8050 /* IbanSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10ACE2BEA9D4B00CF8050 /* IbanSayfasi.swift */; };
+		3CE10AD12BEA9D6000CF8050 /* AyarlarSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AD02BEA9D6000CF8050 /* AyarlarSayfasi.swift */; };
+		3CE10AD32BEA9D6D00CF8050 /* ProfilimSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AD22BEA9D6D00CF8050 /* ProfilimSayfasi.swift */; };
+		3CE10AD52BEA9D7E00CF8050 /* BildirimlerSayfasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AD42BEA9D7E00CF8050 /* BildirimlerSayfasi.swift */; };
+		F9CCC661E33C3D7329109760 /* Pods_ADA1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F57E9DAE195CD68B5597C3 /* Pods_ADA1.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		102E6554327A5F8EDBE87494 /* Pods-ADA1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADA1.release.xcconfig"; path = "Target Support Files/Pods-ADA1/Pods-ADA1.release.xcconfig"; sourceTree = "<group>"; };
+		3C3BB45F2BEFC02F00918F68 /* AcilDurum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AcilDurum.mp3; sourceTree = "<group>"; };
+		3C3BB4A82BF0F22600918F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3C3BB4A92BF0F22600918F68 /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
+		3C3BB4AA2BF0F22600918F68 /* playstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playstore.png; sourceTree = "<group>"; };
+		3CE10AA62BEA9CC600CF8050 /* ADA1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADA1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CE10AA92BEA9CC600CF8050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3CE10AAB2BEA9CC600CF8050 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3CE10AAD2BEA9CC600CF8050 /* Anasayfa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anasayfa.swift; sourceTree = "<group>"; };
+		3CE10AB02BEA9CC600CF8050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3CE10AB32BEA9CC600CF8050 /* ADA1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ADA1.xcdatamodel; sourceTree = "<group>"; };
+		3CE10AB52BEA9CC700CF8050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3CE10AB82BEA9CC700CF8050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3CE10ABA2BEA9CC700CF8050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CE10AC02BEA9CE500CF8050 /* KayitOlSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KayitOlSayfasi.swift; sourceTree = "<group>"; };
+		3CE10AC22BEA9CF500CF8050 /* DepremHazirlikSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepremHazirlikSayfasi.swift; sourceTree = "<group>"; };
+		3CE10AC42BEA9D0100CF8050 /* BagisSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagisSayfasi.swift; sourceTree = "<group>"; };
+		3CE10AC62BEA9D0D00CF8050 /* GirisSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirisSayfasi.swift; sourceTree = "<group>"; };
+		3CE10AC82BEA9D1C00CF8050 /* EnkazİhbarSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnkazİhbarSayfasi.swift"; sourceTree = "<group>"; };
+		3CE10ACA2BEA9D3000CF8050 /* HaritalarSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaritalarSayfasi.swift; sourceTree = "<group>"; };
+		3CE10ACC2BEA9D3E00CF8050 /* HaberlerSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaberlerSayfasi.swift; sourceTree = "<group>"; };
+		3CE10ACE2BEA9D4B00CF8050 /* IbanSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanSayfasi.swift; sourceTree = "<group>"; };
+		3CE10AD02BEA9D6000CF8050 /* AyarlarSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyarlarSayfasi.swift; sourceTree = "<group>"; };
+		3CE10AD22BEA9D6D00CF8050 /* ProfilimSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilimSayfasi.swift; sourceTree = "<group>"; };
+		3CE10AD42BEA9D7E00CF8050 /* BildirimlerSayfasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BildirimlerSayfasi.swift; sourceTree = "<group>"; };
+		4056CA6125AB49891ECF69A9 /* Pods-ADA1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADA1.debug.xcconfig"; path = "Target Support Files/Pods-ADA1/Pods-ADA1.debug.xcconfig"; sourceTree = "<group>"; };
+		A0F57E9DAE195CD68B5597C3 /* Pods_ADA1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADA1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3CE10AA32BEA9CC600CF8050 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9CCC661E33C3D7329109760 /* Pods_ADA1.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14AF6E762CF902BD3C2BEFEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0F57E9DAE195CD68B5597C3 /* Pods_ADA1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C3BB45E2BEFC02F00918F68 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				3C3BB45F2BEFC02F00918F68 /* AcilDurum.mp3 */,
+			);
+			path = sound;
+			sourceTree = "<group>";
+		};
+		3C3BB4A72BF0F22600918F68 /* AppIcons-5 */ = {
+			isa = PBXGroup;
+			children = (
+				3C3BB4A82BF0F22600918F68 /* Assets.xcassets */,
+				3C3BB4A92BF0F22600918F68 /* appstore.png */,
+				3C3BB4AA2BF0F22600918F68 /* playstore.png */,
+			);
+			path = "AppIcons-5";
+			sourceTree = "<group>";
+		};
+		3CE10A9D2BEA9CC600CF8050 = {
+			isa = PBXGroup;
+			children = (
+				3CE10AA82BEA9CC600CF8050 /* ADA1 */,
+				3CE10AA72BEA9CC600CF8050 /* Products */,
+				8D5F7B18D9420FA2DA86BC32 /* Pods */,
+				14AF6E762CF902BD3C2BEFEE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3CE10AA72BEA9CC600CF8050 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3CE10AA62BEA9CC600CF8050 /* ADA1.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3CE10AA82BEA9CC600CF8050 /* ADA1 */ = {
+			isa = PBXGroup;
+			children = (
+				3C3BB4A72BF0F22600918F68 /* AppIcons-5 */,
+				3C3BB45E2BEFC02F00918F68 /* sound */,
+				3CE10AA92BEA9CC600CF8050 /* AppDelegate.swift */,
+				3CE10AAB2BEA9CC600CF8050 /* SceneDelegate.swift */,
+				3CE10AC62BEA9D0D00CF8050 /* GirisSayfasi.swift */,
+				3CE10AC02BEA9CE500CF8050 /* KayitOlSayfasi.swift */,
+				3CE10AAD2BEA9CC600CF8050 /* Anasayfa.swift */,
+				3CE10AC22BEA9CF500CF8050 /* DepremHazirlikSayfasi.swift */,
+				3CE10AC82BEA9D1C00CF8050 /* EnkazİhbarSayfasi.swift */,
+				3CE10ACA2BEA9D3000CF8050 /* HaritalarSayfasi.swift */,
+				3CE10ACC2BEA9D3E00CF8050 /* HaberlerSayfasi.swift */,
+				3CE10AC42BEA9D0100CF8050 /* BagisSayfasi.swift */,
+				3CE10ACE2BEA9D4B00CF8050 /* IbanSayfasi.swift */,
+				3CE10AD02BEA9D6000CF8050 /* AyarlarSayfasi.swift */,
+				3CE10AD22BEA9D6D00CF8050 /* ProfilimSayfasi.swift */,
+				3CE10AD42BEA9D7E00CF8050 /* BildirimlerSayfasi.swift */,
+				3CE10AAF2BEA9CC600CF8050 /* Main.storyboard */,
+				3CE10AB52BEA9CC700CF8050 /* Assets.xcassets */,
+				3CE10AB72BEA9CC700CF8050 /* LaunchScreen.storyboard */,
+				3CE10ABA2BEA9CC700CF8050 /* Info.plist */,
+				3CE10AB22BEA9CC600CF8050 /* ADA1.xcdatamodeld */,
+			);
+			path = ADA1;
+			sourceTree = "<group>";
+		};
+		8D5F7B18D9420FA2DA86BC32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4056CA6125AB49891ECF69A9 /* Pods-ADA1.debug.xcconfig */,
+				102E6554327A5F8EDBE87494 /* Pods-ADA1.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3CE10AA52BEA9CC600CF8050 /* ADA1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CE10ABD2BEA9CC700CF8050 /* Build configuration list for PBXNativeTarget "ADA1" */;
+			buildPhases = (
+				BDAA480B2016E05E36287402 /* [CP] Check Pods Manifest.lock */,
+				3CE10AA22BEA9CC600CF8050 /* Sources */,
+				3CE10AA32BEA9CC600CF8050 /* Frameworks */,
+				3CE10AA42BEA9CC600CF8050 /* Resources */,
+				5DB371EBE0B5B7A70F60D562 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ADA1;
+			productName = ADA1;
+			productReference = 3CE10AA62BEA9CC600CF8050 /* ADA1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3CE10A9E2BEA9CC600CF8050 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					3CE10AA52BEA9CC600CF8050 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 3CE10AA12BEA9CC600CF8050 /* Build configuration list for PBXProject "ADA1" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3CE10A9D2BEA9CC600CF8050;
+			productRefGroup = 3CE10AA72BEA9CC600CF8050 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3CE10AA52BEA9CC600CF8050 /* ADA1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3CE10AA42BEA9CC600CF8050 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CE10AB92BEA9CC700CF8050 /* LaunchScreen.storyboard in Resources */,
+				3C3BB4AC2BF0F22600918F68 /* appstore.png in Resources */,
+				3C3BB4602BEFC02F00918F68 /* AcilDurum.mp3 in Resources */,
+				3CE10AB62BEA9CC700CF8050 /* Assets.xcassets in Resources */,
+				3CE10AB12BEA9CC600CF8050 /* Main.storyboard in Resources */,
+				3C3BB4AD2BF0F22600918F68 /* playstore.png in Resources */,
+				3C3BB4AB2BF0F22600918F68 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DB371EBE0B5B7A70F60D562 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ADA1/Pods-ADA1-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ADA1/Pods-ADA1-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ADA1/Pods-ADA1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDAA480B2016E05E36287402 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ADA1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CE10AA22BEA9CC600CF8050 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CE10AC92BEA9D1C00CF8050 /* EnkazİhbarSayfasi.swift in Sources */,
+				3CE10AB42BEA9CC600CF8050 /* ADA1.xcdatamodeld in Sources */,
+				3CE10AD52BEA9D7E00CF8050 /* BildirimlerSayfasi.swift in Sources */,
+				3CE10ACD2BEA9D3E00CF8050 /* HaberlerSayfasi.swift in Sources */,
+				3CE10AAE2BEA9CC600CF8050 /* Anasayfa.swift in Sources */,
+				3CE10AAA2BEA9CC600CF8050 /* AppDelegate.swift in Sources */,
+				3CE10AC72BEA9D0D00CF8050 /* GirisSayfasi.swift in Sources */,
+				3CE10AC32BEA9CF500CF8050 /* DepremHazirlikSayfasi.swift in Sources */,
+				3CE10AC52BEA9D0100CF8050 /* BagisSayfasi.swift in Sources */,
+				3CE10AC12BEA9CE500CF8050 /* KayitOlSayfasi.swift in Sources */,
+				3CE10AAC2BEA9CC600CF8050 /* SceneDelegate.swift in Sources */,
+				3CE10AD32BEA9D6D00CF8050 /* ProfilimSayfasi.swift in Sources */,
+				3CE10AD12BEA9D6000CF8050 /* AyarlarSayfasi.swift in Sources */,
+				3CE10ACF2BEA9D4B00CF8050 /* IbanSayfasi.swift in Sources */,
+				3CE10ACB2BEA9D3000CF8050 /* HaritalarSayfasi.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3CE10AAF2BEA9CC600CF8050 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CE10AB02BEA9CC600CF8050 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3CE10AB72BEA9CC700CF8050 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CE10AB82BEA9CC700CF8050 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3CE10ABB2BEA9CC700CF8050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3CE10ABC2BEA9CC700CF8050 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3CE10ABE2BEA9CC700CF8050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4056CA6125AB49891ECF69A9 /* Pods-ADA1.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HF3TW43UHD;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ADA1/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = EfeSenol.ADA1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3CE10ABF2BEA9CC700CF8050 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 102E6554327A5F8EDBE87494 /* Pods-ADA1.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HF3TW43UHD;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ADA1/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = EfeSenol.ADA1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3CE10AA12BEA9CC600CF8050 /* Build configuration list for PBXProject "ADA1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CE10ABB2BEA9CC700CF8050 /* Debug */,
+				3CE10ABC2BEA9CC700CF8050 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3CE10ABD2BEA9CC700CF8050 /* Build configuration list for PBXNativeTarget "ADA1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CE10ABE2BEA9CC700CF8050 /* Debug */,
+				3CE10ABF2BEA9CC700CF8050 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3CE10AB22BEA9CC600CF8050 /* ADA1.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3CE10AB32BEA9CC600CF8050 /* ADA1.xcdatamodel */,
+			);
+			currentVersion = 3CE10AB32BEA9CC600CF8050 /* ADA1.xcdatamodel */;
+			path = ADA1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3CE10A9E2BEA9CC600CF8050 /* Project object */;
+}
