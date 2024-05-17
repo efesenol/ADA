@@ -11,7 +11,7 @@ import AVFoundation
 class Anasayfa: UIViewController,AVAudioPlayerDelegate {
     
     var player: AVAudioPlayer?
-    
+    var isPlaying = false
     override func viewDidLoad() {
         super.viewDidLoad()
         // Geri düğmesini özelleştirme
@@ -19,18 +19,18 @@ class Anasayfa: UIViewController,AVAudioPlayerDelegate {
         backButton.tintColor = UIColor.white // Geri düğmesinin rengini beyaz yapın
         self.navigationItem.backBarButtonItem = backButton
         
-        guard let url = Bundle.main.url(forResource: "AcilDurum", withExtension: "mp3") else {
-            print("Ses dosyası bulunamadı.")
-            return
-        }
-        do {
-            // AVAudioPlayer ile ses dosyasını çal
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.delegate = self
-            player?.prepareToPlay()
-        } catch let error as NSError {
-            print(error.description)
-        }
+        // Ses dosyasını yükle
+               guard let url = Bundle.main.url(forResource: "AcilDurum", withExtension: "mp3") else {
+                   print("Ses dosyası bulunamadı.")
+                   return
+               }
+               do {
+                   // AVAudioPlayer ile ses dosyasını çal
+                   player = try AVAudioPlayer(contentsOf: url)
+                   player?.prepareToPlay()
+               } catch let error as NSError {
+                   print(error.description)
+               }
         view.backgroundColor = UIColor.white
 
         
@@ -51,7 +51,13 @@ class Anasayfa: UIViewController,AVAudioPlayerDelegate {
         performSegue(withIdentifier: "Haberler", sender: nil)
     }
     @IBAction func AlarmButton(_ sender: Any) {
-        playSound()
+        if isPlaying {
+            player?.pause()
+                   isPlaying = false
+               } else {
+                   player?.play()
+                   isPlaying = true
+               }
         
         
     }
@@ -59,17 +65,6 @@ class Anasayfa: UIViewController,AVAudioPlayerDelegate {
         performSegue(withIdentifier: "Ayarlar", sender: nil)
     }
    
-    func playSound() {
-        player?.play()
-        
-    }
-    
-    // AVAudioPlayerDelegate yöntemini uygula
-    func audioPlayerDidStartPlaying(_ player: AVAudioPlayer) {
-        print("Ses dosyası başarıyla çalınıyor.")
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
+  
+     
 }
