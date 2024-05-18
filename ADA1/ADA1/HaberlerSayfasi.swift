@@ -27,7 +27,7 @@ class HaberlerSayfasi: UIViewController,UITableViewDelegate,UITableViewDataSourc
   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return 20
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()

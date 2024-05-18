@@ -19,9 +19,6 @@ class EnkazIhbarSayfasi: UIViewController, UIImagePickerControllerDelegate & UIN
         self.navigationItem.backBarButtonItem = backButton
         view.backgroundColor = UIColor.white
 
-
-        
-        
     }
     
     

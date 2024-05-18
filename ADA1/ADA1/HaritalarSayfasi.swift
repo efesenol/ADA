@@ -67,8 +67,6 @@ class HaritalarSayfasi: UIViewController {
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.title = name
         marker.map = mapView
-       
-              
         return marker
         
         func loadViewFromNib() -> UIView {
@@ -109,7 +107,7 @@ class HaritalarSayfasi: UIViewController {
     func fetchData(type: String) {
         var urlString = ""
         if type == "hospital" {
-            urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9334,32.8597&radius=1500000&type=AIzaSyDxpYVYnvEmLLoVVRpxsPWWR_jWQV6MCFQ" // Türkiye'nin orta noktası ve 1500 km yarıçap
+            urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9334,32.8597&radius=1500000&type=hospital&key=AIzaSyDxpYVYnvEmLLoVVRpxsPWWR_jWQV6MCFQ" // Türkiye'nin orta noktası ve 1500 km yarıçap
         } else if type == "pharmacy" {
             urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9334,32.8597&radius=1500000&type=pharmacy&key=AIzaSyDxpYVYnvEmLLoVVRpxsPWWR_jWQV6MCFQ" // Türkiye'nin orta noktası ve 1500 km yarıçap
         }

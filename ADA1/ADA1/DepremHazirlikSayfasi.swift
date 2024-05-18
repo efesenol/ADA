@@ -34,10 +34,7 @@ class DepremHazirlikSayfasi: UIViewController,UITableViewDataSource,UITableViewD
         
 
     }
-    
-   
-    
-   
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
