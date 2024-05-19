@@ -6,17 +6,18 @@ class HaritalarSayfasi: UIViewController {
     var mapView: GMSMapView!
     var hospitalButton: UIButton!
     var pharmacyButton: UIButton!
-    var zoomOutButton: UIButton!
+    var gatheringAreaButton: UIButton!
     var hospitalMarkers: [GMSMarker] = []
     var pharmacyMarkers: [GMSMarker] = []
+    var gatheringAreaMarkers: [GMSMarker] = []
     var isHospitalsAdded = false
     var isPharmaciesAdded = false
+    var isGatheringAreasAdded = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
 
-        
         // Harita görünümünü oluştur
         let camera = GMSCameraPosition.camera(withLatitude: 38.9637, longitude: 35.2433, zoom: 7.0) // Türkiye'nin orta noktası ve daha geniş bir zoom
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
@@ -24,25 +25,31 @@ class HaritalarSayfasi: UIViewController {
         view = mapView
         
         // Hastane butonunu oluştur
-        hospitalButton = UIButton(type: .system)
-        hospitalButton.setTitle("Hastaneleri Ekle", for: .normal)
+        hospitalButton = UIButton(type: .custom)
         hospitalButton.addTarget(self, action: #selector(toggleHospitals), for: .touchUpInside)
-        hospitalButton.frame = CGRect(x: 16, y: 700, width: 160, height: 40)
-        hospitalButton.setTitleColor(.red, for: .normal)
-        hospitalButton.backgroundColor = .white
-        hospitalButton.layer.cornerRadius = 15
+        hospitalButton.frame = CGRect(x: 20, y: 750, width: 40, height: 40)
+        hospitalButton.setImage(UIImage(named: "Hastane Logo"), for: .normal) // Hastane logosunu ekleyin
+        //hospitalButton.layer.cornerRadius = 20
+        hospitalButton.clipsToBounds = true
         mapView.addSubview(hospitalButton)
         
         // Eczane butonunu oluştur
-        pharmacyButton = UIButton(type: .system)
-        pharmacyButton.setTitle("Eczaneleri Ekle", for: .normal)
+        pharmacyButton = UIButton(type: .custom)
         pharmacyButton.addTarget(self, action: #selector(togglePharmacies), for: .touchUpInside)
-        pharmacyButton.frame = CGRect(x: 16, y: 750, width: 160, height: 40)
-        pharmacyButton.setTitleColor(.red, for: .normal)
-        pharmacyButton.backgroundColor = .white
-        pharmacyButton.layer.cornerRadius = 15
+        pharmacyButton.frame = CGRect(x: 70, y: 750, width: 40, height: 40)
+        pharmacyButton.setImage(UIImage(named: "Eczane Logo"), for: .normal) // Eczane logosunu ekleyin
+        //pharmacyButton.layer.cornerRadius = 20
+        pharmacyButton.clipsToBounds = true
         mapView.addSubview(pharmacyButton)
-      
+
+        // Toplanma Alanları butonunu oluştur
+        gatheringAreaButton = UIButton(type: .custom)
+        gatheringAreaButton.addTarget(self, action: #selector(toggleGatheringAreas), for: .touchUpInside)
+        gatheringAreaButton.frame = CGRect(x: 120, y: 750, width: 40, height: 40)
+        gatheringAreaButton.setImage(UIImage(named: "ToplanmaAlanı Logo"), for: .normal) // Toplanma alanı logosunu ekleyin
+        //gatheringAreaButton.layer.cornerRadius = 20
+        gatheringAreaButton.clipsToBounds = true
+        mapView.addSubview(gatheringAreaButton)
     }
     
     @objc func toggleHospitals() {
@@ -61,28 +68,30 @@ class HaritalarSayfasi: UIViewController {
         }
     }
     
-  
+    @objc func toggleGatheringAreas() {
+        if isGatheringAreasAdded {
+            removeMarkers(type: "gatheringArea")
+        } else {
+            addMarkers(type: "gatheringArea")
+        }
+    }
+    
     func addMarker(latitude: Double, longitude: Double, name: String) -> GMSMarker {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.title = name
         marker.map = mapView
         return marker
-        
-        func loadViewFromNib() -> UIView {
-            let nib = UINib(nibName: "CustomMarkerView", bundle: nil)
-            return nib.instantiate(withOwner: self, options: nil).first as! UIView
-            }
     }
     
     func addMarkers(type: String) {
         fetchData(type: type)
         if type == "hospital" {
             isHospitalsAdded = true
-            hospitalButton.setTitle("Hastaneleri Kaldır", for: .normal)
         } else if type == "pharmacy" {
             isPharmaciesAdded = true
-            pharmacyButton.setTitle("Eczaneleri Kaldır", for: .normal)
+        } else if type == "gatheringArea" {
+            isGatheringAreasAdded = true
         }
     }
     
@@ -93,23 +102,32 @@ class HaritalarSayfasi: UIViewController {
             }
             hospitalMarkers.removeAll()
             isHospitalsAdded = false
-            hospitalButton.setTitle("Hastaneleri Ekle", for: .normal)
         } else if type == "pharmacy" {
             for marker in pharmacyMarkers {
                 marker.map = nil
             }
             pharmacyMarkers.removeAll()
             isPharmaciesAdded = false
-            pharmacyButton.setTitle("Eczaneleri Ekle", for: .normal)
+        } else if type == "gatheringArea" {
+            for marker in gatheringAreaMarkers {
+                marker.map = nil
+            }
+            gatheringAreaMarkers.removeAll()
+            isGatheringAreasAdded = false
         }
     }
     
     func fetchData(type: String) {
         var urlString = ""
+        let apiKey = "AIzaSyDxpYVYnvEmLLoVVRpxsPWWR_jWQV6MCFQ"
+        
         if type == "hospital" {
-            urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9334,32.8597&radius=1500000&type=hospital&key=AIzaSyDxpYVYnvEmLLoVVRpxsPWWR_jWQV6MCFQ" // Türkiye'nin orta noktası ve 1500 km yarıçap
+            urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9334,32.8597&radius=1500000&type=hospital&key=\(apiKey)" // Türkiye'nin orta noktası ve 1500 km yarıçap
         } else if type == "pharmacy" {
-            urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9334,32.8597&radius=1500000&type=pharmacy&key=AIzaSyDxpYVYnvEmLLoVVRpxsPWWR_jWQV6MCFQ" // Türkiye'nin orta noktası ve 1500 km yarıçap
+            urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9334,32.8597&radius=1500000&type=pharmacy&key=\(apiKey)" // Türkiye'nin orta noktası ve 1500 km yarıçap
+        } else if type == "gatheringArea" {
+            // Ankara'nın koordinatları ile toplanma alanlarını sorgulama
+            urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.9334,32.8597&radius=5000&keyword=park&key=\(apiKey)"
         }
         
         guard let url = URL(string: urlString) else {
@@ -131,7 +149,7 @@ class HaritalarSayfasi: UIViewController {
                         for result in results {
                             if let geometry = result["geometry"] as? [String: Any], let location = geometry["location"] as? [String: Any] {
                                 if let latitude = location["lat"] as? Double, let longitude = location["lng"] as? Double {
-                                    // Her hastane/eczane için koordinatları al
+                                    // Her hastane/eczane/toplanma alanı için koordinatları al
                                     DispatchQueue.main.async {
                                         if type == "hospital" {
                                             let marker = self.addMarker(latitude: latitude, longitude: longitude, name: "Hastane")
@@ -139,6 +157,9 @@ class HaritalarSayfasi: UIViewController {
                                         } else if type == "pharmacy" {
                                             let marker = self.addMarker(latitude: latitude, longitude: longitude, name: "Eczane")
                                             self.pharmacyMarkers.append(marker)
+                                        } else if type == "gatheringArea" {
+                                            let marker = self.addMarker(latitude: latitude, longitude: longitude, name: "Toplanma Alanı")
+                                            self.gatheringAreaMarkers.append(marker)
                                         }
                                     }
                                 }

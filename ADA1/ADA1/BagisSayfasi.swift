@@ -28,6 +28,24 @@ class BagisSayfasi: UIViewController,UITableViewDataSource,UITableViewDelegate {
         "Yapı ve Kredi Bankası": ["TL: TR76 0006 7010 0000 0032 7546 60", "USD: TR79 0006 7010 0000 0032 7546 06", "EUR: TR59 0006 7010 0000 0032 7545 78"],
         "Kuveyt Türk Katılım Bankası": ["TL:  TR67 0020 5000 0951 0603 5000 09", "USD:  TR61 0020 5000 0951 0603 5001 17", "EURO: TR34 0020 5000 0951 0603 5001 18"]
     ]
+    let bankLogos = [
+        "VakifKatilim",
+        "TurkiyeEmlak",
+        "AlbarakaTurk",
+        "Denizbank",
+        "Halkbank",
+        "Ziraat",
+        "ZiraatKatilim",
+        "IsBankasi",
+        "Sekerbank",
+        "TEB",
+        "QNB",
+        "Akbank",
+        "PTTBank",
+        "YapiKredi",
+        "KuveytTurk"
+    ]
+
         
     var güncelBankalar : String = ""
 
@@ -57,6 +75,11 @@ class BagisSayfasi: UIViewController,UITableViewDataSource,UITableViewDelegate {
         cell.textLabel?.text = bankalar[indexPath.row]
         cell.textLabel?.textColor = UIColor.black // Metin rengi siyah
         cell.backgroundColor = UIColor.white //Tableview arka plan beyaz
+        // Banka logosunu ekleyin
+          let logoName = bankLogos[indexPath.row]
+          if let logoImage = UIImage(named: logoName) {
+              cell.imageView?.image = logoImage
+          }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C2836232BF97EE500B94DC9 /* banks.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2836222BF97EE500B94DC9 /* banks.xcassets */; };
 		3C3BB4602BEFC02F00918F68 /* AcilDurum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BB45F2BEFC02F00918F68 /* AcilDurum.mp3 */; };
 		3C3BB4AB2BF0F22600918F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BB4A82BF0F22600918F68 /* Assets.xcassets */; };
 		3C3BB4AC2BF0F22600918F68 /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BB4A92BF0F22600918F68 /* appstore.png */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		102E6554327A5F8EDBE87494 /* Pods-ADA1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADA1.release.xcconfig"; path = "Target Support Files/Pods-ADA1/Pods-ADA1.release.xcconfig"; sourceTree = "<group>"; };
+		3C2836222BF97EE500B94DC9 /* banks.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = banks.xcassets; sourceTree = "<group>"; };
 		3C3BB45F2BEFC02F00918F68 /* AcilDurum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AcilDurum.mp3; sourceTree = "<group>"; };
 		3C3BB4A82BF0F22600918F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C3BB4A92BF0F22600918F68 /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3C2836212BF97ED000B94DC9 /* BankAssets */ = {
+			isa = PBXGroup;
+			children = (
+				3C2836222BF97EE500B94DC9 /* banks.xcassets */,
+			);
+			path = BankAssets;
+			sourceTree = "<group>";
+		};
 		3C3BB45E2BEFC02F00918F68 /* sound */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 		3CE10AA82BEA9CC600CF8050 /* ADA1 */ = {
 			isa = PBXGroup;
 			children = (
+				3C2836212BF97ED000B94DC9 /* BankAssets */,
 				3C3BB4A72BF0F22600918F68 /* AppIcons-5 */,
 				3C3BB45E2BEFC02F00918F68 /* sound */,
 				3CE10AA92BEA9CC600CF8050 /* AppDelegate.swift */,
@@ -217,6 +228,7 @@
 			files = (
 				3CE10AB92BEA9CC700CF8050 /* LaunchScreen.storyboard in Resources */,
 				3C3BB4AC2BF0F22600918F68 /* appstore.png in Resources */,
+				3C2836232BF97EE500B94DC9 /* banks.xcassets in Resources */,
 				3C3BB4602BEFC02F00918F68 /* AcilDurum.mp3 in Resources */,
 				3CE10AB62BEA9CC700CF8050 /* Assets.xcassets in Resources */,
 				3CE10AB12BEA9CC600CF8050 /* Main.storyboard in Resources */,

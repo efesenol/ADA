@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="TP8-VP-diK" customClass="GirisSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TXY-Mg-4gB">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ve-Qq-wy7">
@@ -86,6 +86,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVl-35-NbD">
+                                <rect key="frame" x="0.0" y="761" width="393" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="AlarmButton:" destination="qFb-8Y-SK3" eventType="touchUpInside" id="3o0-tg-DLm"/>
+                                    <action selector="AlarmButton:" destination="TP8-VP-diK" eventType="touchUpInside" id="94Y-8q-auF"/>
+                                    <action selector="AlarmButton:" destination="goy-Hw-rnX" eventType="touchUpInside" id="d6w-F3-lNg"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="light.beacon.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Cr0-RW-nwP">
+                                <rect key="frame" x="164" y="753.66666666666663" width="65" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Ob-Qa-PbA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -107,7 +123,7 @@
             <objects>
                 <viewController id="ach-B0-Z8C" customClass="KayitOlSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yke-of-sW1">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18p-Gf-iXr">
@@ -141,7 +157,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTs-o3-oJX">
-                                <rect key="frame" x="69" y="486" width="263" height="29"/>
+                                <rect key="frame" x="68" y="528" width="263" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Giriş Yap">
@@ -161,13 +177,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Şifre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipr-dq-ZHo">
-                                <rect key="frame" x="21" y="364" width="350" height="34"/>
+                                <rect key="frame" x="21" y="406" width="350" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Şifre Tekrar" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9R-z5-pKd">
-                                <rect key="frame" x="21" y="406" width="350" height="34"/>
+                                <rect key="frame" x="21" y="448" width="350" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -185,12 +201,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kayıt olarak şartları ve gizlilik politikasını kabul etmiş olursunuz" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlX-Dq-D9l">
-                                <rect key="frame" x="21" y="443" width="350" height="35"/>
+                                <rect key="frame" x="21" y="485" width="350" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Adres Bilgileri" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FF7-bF-drK">
+                                <rect key="frame" x="21" y="364" width="350" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cJS-Jc-Jso"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -215,7 +237,7 @@
             <objects>
                 <viewController id="Gae-LX-0aw" customClass="HaritalarSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gVu-9h-opE">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqU-RH-Jdh">
@@ -261,14 +283,14 @@
             <objects>
                 <viewController id="goy-Hw-rnX" customClass="Anasayfa" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SUg-Iw-dwA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fd-8B-131">
                                 <rect key="frame" x="217" y="164" width="151" height="201"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Bağış">
+                                <buttonConfiguration key="configuration" style="tinted" image="turkishlirasign.circle.fill" catalog="system" title="Bağış">
                                     <color key="baseForegroundColor" red="0.92156863209999995" green="0.32941177490000001" blue="0.33725491169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="1" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -317,21 +339,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEi-wk-4OX">
-                                <rect key="frame" x="220" y="763" width="58" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="AlarmButton:" destination="qFb-8Y-SK3" eventType="touchUpInside" id="BvF-8u-SWk"/>
-                                    <action selector="AlarmButton:" destination="goy-Hw-rnX" eventType="touchUpInside" id="McU-I6-SdW"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6I-hp-Aty">
                                 <rect key="frame" x="33" y="164" width="151" height="201"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Deprem Öncesi Hazırlık">
+                                <buttonConfiguration key="configuration" style="tinted" image="gym.bag.fill" catalog="system" title="Deprem Öncesi Hazırlık">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
                                     <color key="baseForegroundColor" red="0.92156862750000001" green="0.3294117647" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="1" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -344,7 +357,7 @@
                                 <rect key="frame" x="29" y="406" width="151" height="201"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Enkaz İhbar">
+                                <buttonConfiguration key="configuration" style="tinted" image="message.fill" catalog="system" title="Enkaz İhbar">
                                     <color key="baseForegroundColor" red="0.92156863209999995" green="0.32941177490000001" blue="0.33725491169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="1" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -368,7 +381,7 @@
                                 <rect key="frame" x="222" y="406" width="151" height="201"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Haritalar">
+                                <buttonConfiguration key="configuration" style="tinted" image="map.fill" catalog="system" title="Haritalar">
                                     <color key="baseForegroundColor" red="0.92156863209999995" green="0.32941177490000001" blue="0.33725491169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="1" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -395,6 +408,16 @@
                                     <action selector="AyarlarButton:" destination="qFb-8Y-SK3" eventType="touchUpInside" id="oE1-Ns-0sh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEi-wk-4OX">
+                                <rect key="frame" x="222" y="764" width="58" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="AlarmButton:" destination="qFb-8Y-SK3" eventType="touchUpInside" id="BvF-8u-SWk"/>
+                                    <action selector="AlarmButton:" destination="goy-Hw-rnX" eventType="touchUpInside" id="McU-I6-SdW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="G1V-mf-jYl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -419,7 +442,7 @@
             <objects>
                 <viewController id="KJv-qg-nCL" customClass="HaberlerSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ol6-nE-pbZ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajg-Og-pEz">
@@ -470,7 +493,7 @@
             <objects>
                 <viewController id="RaQ-jy-z3A" customClass="EnkazIhbarSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4E7-1u-2Yi">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmW-Ze-SAN">
@@ -619,7 +642,7 @@
             <objects>
                 <viewController id="Uih-JE-AbJ" customClass="AyarlarSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3ne-13-UX0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbA-dJ-0Ap">
@@ -690,7 +713,7 @@
             <objects>
                 <viewController id="9rj-AU-GKp" customClass="BildirimlerSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rku-5u-9c9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v97-nx-h6Q">
@@ -741,7 +764,7 @@
             <objects>
                 <viewController id="b30-yU-oo4" customClass="BagisSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XJR-D4-0YX">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRf-qv-E7W">
@@ -804,7 +827,7 @@
             <objects>
                 <viewController storyboardIdentifier="Cell" id="cN8-Xi-Reh" customClass="DepremHazirlikSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wWV-Gf-oKS">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgf-mH-Vin">
@@ -867,7 +890,7 @@
             <objects>
                 <viewController id="33g-wz-76g" customClass="IbanSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wo4-Rh-UQ9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FP3-ys-WW9">
@@ -920,7 +943,7 @@
             <objects>
                 <viewController id="Vbj-yT-5RN" customClass="ProfilimSayfasi" customModule="ADA1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F3n-u0-bXT">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzU-5m-gVn">
@@ -1032,18 +1055,22 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3pI-1M-ang"/>
+        <segue reference="fa5-5j-g8U"/>
+        <segue reference="ge1-Cl-qUM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ADA Logo" width="500" height="500"/>
         <image name="bell.badge.fill" catalog="system" width="117" height="128"/>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="folder.fill" catalog="system" width="128" height="96"/>
+        <image name="gym.bag.fill" catalog="system" width="128" height="87"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="light.beacon.max" catalog="system" width="128" height="102"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="message.fill" catalog="system" width="128" height="114"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="turkishlirasign.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

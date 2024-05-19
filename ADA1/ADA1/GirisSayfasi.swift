@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GirisSayfasi: UIViewController {
-
+    
+    var player: AVAudioPlayer?
+    var isPlaying = false
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var TelefonNumarası: UITextField!
@@ -21,6 +24,18 @@ class GirisSayfasi: UIViewController {
             backButton.tintColor = UIColor.systemPink // Geri düğmesinin rengi
             self.navigationItem.backBarButtonItem = backButton
         view.backgroundColor = UIColor.white
+        // Ses dosyasını yükle
+               guard let url = Bundle.main.url(forResource: "AcilDurum", withExtension: "mp3") else {
+                   print("Ses dosyası bulunamadı.")
+                   return
+               }
+               do {
+                   // AVAudioPlayer ile ses dosyasını çal
+                   player = try AVAudioPlayer(contentsOf: url)
+                   player?.prepareToPlay()
+               } catch let error as NSError {
+                   print(error.description)
+               }
         
         
 
@@ -65,5 +80,15 @@ class GirisSayfasi: UIViewController {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func AlarmButton(_ sender: Any) {
+        if isPlaying {
+            player?.pause()
+                   isPlaying = false
+               } else {
+                   player?.play()
+                   isPlaying = true
+               }
     }
 }
