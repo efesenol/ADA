@@ -1,7 +1,8 @@
 import UIKit
 import GoogleMaps
+import CoreLocation
 
-class HaritalarSayfasi: UIViewController {
+class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate {
 
     var mapView: GMSMapView!
     var hospitalButton: UIButton!
@@ -13,7 +14,10 @@ class HaritalarSayfasi: UIViewController {
     var isHospitalsAdded = false
     var isPharmaciesAdded = false
     var isGatheringAreasAdded = false
-
+    
+    var locationManager : CLLocationManager!
+    var userMarker : GMSMarker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -23,6 +27,12 @@ class HaritalarSayfasi: UIViewController {
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.isMyLocationEnabled = true
         view = mapView
+        
+        // Konum yöneticisini başlat
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
         // Hastane butonunu oluştur
         hospitalButton = UIButton(type: .custom)
@@ -76,10 +86,12 @@ class HaritalarSayfasi: UIViewController {
         }
     }
     
-    func addMarker(latitude: Double, longitude: Double, name: String) -> GMSMarker {
+    func addMarker(latitude: Double, longitude: Double, name: String,iconName: String) -> GMSMarker {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.title = name
+        marker.icon = resizeImage(image: UIImage(named: iconName)!, targetSize: CGSize(width: 30, height: 30)) // Marker için yeniden boyutlandırılmış ikon ayarla
+        marker.map = mapView
         marker.map = mapView
         return marker
     }
@@ -152,13 +164,13 @@ class HaritalarSayfasi: UIViewController {
                                     // Her hastane/eczane/toplanma alanı için koordinatları al
                                     DispatchQueue.main.async {
                                         if type == "hospital" {
-                                            let marker = self.addMarker(latitude: latitude, longitude: longitude, name: "Hastane")
+                                            let marker = self.addMarker(latitude: latitude, longitude: longitude, name: "Hastane",iconName: "Hastane Logo")
                                             self.hospitalMarkers.append(marker)
                                         } else if type == "pharmacy" {
-                                            let marker = self.addMarker(latitude: latitude, longitude: longitude, name: "Eczane")
+                                            let marker = self.addMarker(latitude: latitude, longitude: longitude, name: "Eczane",iconName: "Eczane Logo")
                                             self.pharmacyMarkers.append(marker)
                                         } else if type == "gatheringArea" {
-                                            let marker = self.addMarker(latitude: latitude, longitude: longitude, name: "Toplanma Alanı")
+                                            let marker = self.addMarker(latitude: latitude, longitude: longitude, name: "Toplanma Alanı",iconName: "ToplanmaAlanı Logo")
                                             self.gatheringAreaMarkers.append(marker)
                                         }
                                     }
@@ -174,4 +186,55 @@ class HaritalarSayfasi: UIViewController {
         
         task.resume()
     }
-}
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+           let size = image.size
+           
+           let widthRatio  = targetSize.width  / size.width
+           let heightRatio = targetSize.height / size.height
+           
+           // Determine what scale factor to use
+           var newSize: CGSize
+           if(widthRatio > heightRatio) {
+               newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+           } else {
+               newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+           }
+           
+           // Create a new rectangle with the new size
+           let rect = CGRect(origin: .zero, size: newSize)
+           
+           // Draw the image in the new size
+           UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+           image.draw(in: rect)
+           let newImage = UIGraphicsGetImageFromCurrentImageContext()
+           UIGraphicsEndImageContext()
+           
+           return newImage!
+       }
+    // CLLocationManagerDelegate fonksiyonları
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            guard let location = locations.last else { return }
+            
+            // Kullanıcının konumunu güncelle
+            let userLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            if userMarker == nil {
+                userMarker = GMSMarker()
+                userMarker.position = userLocation
+                userMarker.title = "Mevcut Konum"
+                userMarker.icon = GMSMarker.markerImage(with: .blue)
+                userMarker.map = mapView
+            } else {
+                userMarker.position = userLocation
+            }
+            
+            // Haritayı kullanıcı konumuna odakla
+            let camera = GMSCameraPosition.camera(withLatitude: userLocation.latitude, longitude: userLocation.longitude, zoom: 5.0)
+            mapView.animate(to: camera)
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+            print("Konum güncellenemedi: \(error.localizedDescription)")
+        }
+   }
+
