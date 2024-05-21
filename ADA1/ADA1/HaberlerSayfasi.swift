@@ -38,6 +38,17 @@ class HaberlerSayfasi: UIViewController,UITableViewDelegate,UITableViewDataSourc
         cell.backgroundColor = UIColor.white //Tableview arka plan beyaz
         return cell
     }
+    class HaberlerSayfasi: UIViewController {
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            view.backgroundColor = .white
+            let label = UILabel()
+            label.text = "Haberler"
+            label.textAlignment = .center
+            label.frame = view.bounds
+            view.addSubview(label)
+        }
+    }
     
 
 }

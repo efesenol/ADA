@@ -26,7 +26,17 @@ class ProfilimSayfasi: UIViewController {
     
     @IBAction func BildirimlerAçKapa(_ sender: Any) {
     }
-    
+    class ProfilimSayfasi: UIViewController {
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            view.backgroundColor = .white
+            let label = UILabel()
+            label.text = "Profilim"
+            label.textAlignment = .center
+            label.frame = view.bounds
+            view.addSubview(label)
+        }
+    }
    
 
 }

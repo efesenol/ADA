@@ -2,7 +2,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate {
+class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate {
 
     var mapView: GMSMapView!
     var hospitalButton: UIButton!
@@ -14,9 +14,12 @@ class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate {
     var isHospitalsAdded = false
     var isPharmaciesAdded = false
     var isGatheringAreasAdded = false
+    var currentPolyline: GMSPolyline?
     
+    var isFirstLocationUpdate = true
     var locationManager : CLLocationManager!
     var userMarker : GMSMarker!
+    var userLocation: CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,7 @@ class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: 38.9637, longitude: 35.2433, zoom: 7.0) // Türkiye'nin orta noktası ve daha geniş bir zoom
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.isMyLocationEnabled = true
+        mapView.delegate = self
         view = mapView
         
         // Konum yöneticisini başlat
@@ -214,27 +218,83 @@ class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate {
     // CLLocationManagerDelegate fonksiyonları
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             guard let location = locations.last else { return }
-            
-            // Kullanıcının konumunu güncelle
-            let userLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            
-            if userMarker == nil {
-                userMarker = GMSMarker()
-                userMarker.position = userLocation
-                userMarker.title = "Mevcut Konum"
-                userMarker.icon = GMSMarker.markerImage(with: .blue)
-                userMarker.map = mapView
-            } else {
-                userMarker.position = userLocation
+                
+                let userLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                
+                if userMarker == nil {
+                    userMarker = GMSMarker()
+                    userMarker.position = userLocation
+                    userMarker.title = "Mevcut Konum"
+                    userMarker.icon = GMSMarker.markerImage(with: .blue)
+                    userMarker.map = mapView
+                } else {
+                    userMarker.position = userLocation
             }
-            
-            // Haritayı kullanıcı konumuna odakla
-            let camera = GMSCameraPosition.camera(withLatitude: userLocation.latitude, longitude: userLocation.longitude, zoom: 5.0)
-            mapView.animate(to: camera)
+            // Haritayı sadece ilk konum güncellemesinde kullanıcı konumuna odakla
+                if isFirstLocationUpdate {
+                    let camera = GMSCameraPosition.camera(withLatitude: userLocation.latitude, longitude: userLocation.longitude, zoom: 15.0)
+                    mapView.animate(to: camera)
+                    isFirstLocationUpdate = false
+                }
         }
         
         func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
             print("Konum güncellenemedi: \(error.localizedDescription)")
         }
+    // GMSMapViewDelegate fonksiyonları
+       func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+           if let userLocation = locationManager.location?.coordinate {
+               let destination = marker.position
+               drawRoute(from: userLocation, to: destination)
+              }
+           return true
+       }
+    //Rota çizme
+    func drawRoute(from origin: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
+        let apiKey = "AIzaSyDxpYVYnvEmLLoVVRpxsPWWR_jWQV6MCFQ"
+        let originString = "\(origin.latitude),\(origin.longitude)"
+        let destinationString = "\(destination.latitude),\(destination.longitude)"
+        
+        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(originString)&destination=\(destinationString)&key=\(apiKey)"
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error fetching directions: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    if let routes = json["routes"] as? [[String: Any]], let route = routes.first {
+                        if let overviewPolyline = route["overview_polyline"] as? [String: Any], let points = overviewPolyline["points"] as? String {
+                            DispatchQueue.main.async {
+                                // Eski polyline'ı kaldır
+                                self.currentPolyline?.map = nil
+                                self.drawPath(from: points)
+                            }
+                        }
+                    }
+                }
+            } catch {
+                print("Error parsing directions JSON: \(error.localizedDescription)")
+            }
+        }
+        
+        task.resume()
+    }
+
+       
+       // Polylines ekleyerek rotayı çiz
+       func drawPath(from points: String) {
+           let path = GMSPath(fromEncodedPath: points)
+           let polyline = GMSPolyline(path: path)
+           polyline.strokeColor = .blue
+           polyline.strokeWidth = 4.0
+           polyline.map = mapView
+           // Çizilen polyline'ı sakla
+           currentPolyline = polyline
+       }
    }
 

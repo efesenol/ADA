@@ -31,5 +31,16 @@ class AyarlarSayfasi: UIViewController {
     @IBAction func BildirimlerButton(_ sender: Any) {
         performSegue(withIdentifier: "Bildirimler", sender: nil)
     }
+    class AyarlarSayfasi: UIViewController {
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            view.backgroundColor = .white
+            let label = UILabel()
+            label.text = "Ayarlar"
+            label.textAlignment = .center
+            label.frame = view.bounds
+            view.addSubview(label)
+        }
+    }
 
 }

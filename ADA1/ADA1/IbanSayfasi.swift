@@ -1,56 +1,54 @@
-//
-//  IbanSayfasi.swift
-//  ADA Project
-//
-//  Created by Efe Şenol on 25.03.2024.
-//
-
+// IbanSayfasi.swift
 import UIKit
 
 class IbanSayfasi: UIViewController {
+    
+    var BankaAdi: String = ""
+    var ibans: [String] = []
 
-    @IBOutlet weak var bankaAdi: UILabel!
-    @IBOutlet weak var IBAN: UILabel!
-   
-   
-    var BankaAdi : String = ""
-    var ibans : [String] = []
-        
+    @IBOutlet weak var TLLabel: UILabel!
+    @IBOutlet weak var USDLabel: UILabel!
+    @IBOutlet weak var EuroLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
-
-        // Geri düğmesini özelleştirme
-            let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-            backButton.tintColor = UIColor.white // Geri düğmesinin rengini beyaz yapın
-            self.navigationItem.backBarButtonItem = backButton
-
-        bankaAdi.text = BankaAdi
-        IBAN.text = ibans.joined(separator: "\n")
-        IBAN.isUserInteractionEnabled = true //Label tıklanabilir oldu
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
-        IBAN.addGestureRecognizer(tapGesture)
+        self.title = BankaAdi
+        view.backgroundColor = UIColor.white
+        
+        if ibans.count > 0 {
+            TLLabel.text = ibans[0]
+        }
+        if ibans.count > 1 {
+            USDLabel.text = ibans[1]
+        }
+        if ibans.count > 2 {
+            EuroLabel.text = ibans[2]
+        }
+        addTapGesture(to: TLLabel)
+        addTapGesture(to: USDLabel)
+        addTapGesture(to: EuroLabel)
     }
-    @objc func labelTapped (sender : UITapGestureRecognizer){
-        if let label = sender.view as? UILabel {
-            UIPasteboard.general.string = label.text
-            print("Metin kopyalandı : \(label.text ?? "")")
-            
-            // Bildirim oluştur
-                        let alert = UIAlertController(title: "Metin Kopyalandı", message: "Metin panoya kopyalandı.", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-                        alert.addAction(okAction)
-                        present(alert, animated: true, completion: nil)
-                }
+    func addTapGesture(to label: UILabel) {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLabelTap(_:)))
+            label.isUserInteractionEnabled = true
+            label.addGestureRecognizer(tapGesture)
         }
         
-    }
-    
-
-    
-    
-
-  
-
-
+        @objc func handleLabelTap(_ sender: UITapGestureRecognizer) {
+            if let label = sender.view as? UILabel, let text = label.text {
+                UIPasteboard.general.string = text
+                showCopyAlert()
+            }
+        }
+        
+        func showCopyAlert() {
+            let alert = UIAlertController(title: nil, message: "Kopyalandı", preferredStyle: .alert)
+            self.present(alert, animated: true)
+            
+            // 1 saniye sonra uyarıyı kapat
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                alert.dismiss(animated: true, completion: nil)
+            }
+        }
+}

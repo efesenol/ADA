@@ -64,6 +64,17 @@ class Anasayfa: UIViewController,AVAudioPlayerDelegate {
     @IBAction func AyarlarButton(_ sender: Any) {
         performSegue(withIdentifier: "Ayarlar", sender: nil)
     }
+    class Anasayfa: UIViewController {
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            view.backgroundColor = .white
+            let label = UILabel()
+            label.text = "Home"
+            label.textAlignment = .center
+            label.frame = view.bounds
+            view.addSubview(label)
+        }
+    }
    
   
      
