@@ -47,9 +47,6 @@ class Anasayfa: UIViewController,AVAudioPlayerDelegate {
     @IBAction func BağışButton(_ sender: Any) {
         performSegue(withIdentifier: "Bagis", sender: nil)
     }
-    @IBAction func HaberlerButton(_ sender: Any) {
-        performSegue(withIdentifier: "Haberler", sender: nil)
-    }
     @IBAction func AlarmButton(_ sender: Any) {
         if isPlaying {
             player?.pause()
@@ -61,9 +58,7 @@ class Anasayfa: UIViewController,AVAudioPlayerDelegate {
         
         
     }
-    @IBAction func AyarlarButton(_ sender: Any) {
-        performSegue(withIdentifier: "Ayarlar", sender: nil)
-    }
+    
     class Anasayfa: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()

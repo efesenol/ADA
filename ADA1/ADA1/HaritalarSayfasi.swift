@@ -3,7 +3,7 @@ import GoogleMaps
 import CoreLocation
 
 class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate {
-
+    
     var mapView: GMSMapView!
     var hospitalButton: UIButton!
     var pharmacyButton: UIButton!
@@ -24,7 +24,7 @@ class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate,GMSMapViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-
+        
         // Harita görünümünü oluştur
         let camera = GMSCameraPosition.camera(withLatitude: 38.9637, longitude: 35.2433, zoom: 7.0) // Türkiye'nin orta noktası ve daha geniş bir zoom
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
@@ -55,7 +55,7 @@ class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate,GMSMapViewDel
         //pharmacyButton.layer.cornerRadius = 20
         pharmacyButton.clipsToBounds = true
         mapView.addSubview(pharmacyButton)
-
+        
         // Toplanma Alanları butonunu oluştur
         gatheringAreaButton = UIButton(type: .custom)
         gatheringAreaButton.addTarget(self, action: #selector(toggleGatheringAreas), for: .touchUpInside)
@@ -64,6 +64,9 @@ class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate,GMSMapViewDel
         //gatheringAreaButton.layer.cornerRadius = 20
         gatheringAreaButton.clipsToBounds = true
         mapView.addSubview(gatheringAreaButton)
+        
+        // Deprem riski yüksek bölgeleri gösteren poligonları ekle
+        //addEarthquakeRiskZones()
     }
     
     @objc func toggleHospitals() {
@@ -191,64 +194,64 @@ class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate,GMSMapViewDel
         task.resume()
     }
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-           let size = image.size
-           
-           let widthRatio  = targetSize.width  / size.width
-           let heightRatio = targetSize.height / size.height
-           
-           // Determine what scale factor to use
-           var newSize: CGSize
-           if(widthRatio > heightRatio) {
-               newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-           } else {
-               newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
-           }
-           
-           // Create a new rectangle with the new size
-           let rect = CGRect(origin: .zero, size: newSize)
-           
-           // Draw the image in the new size
-           UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-           image.draw(in: rect)
-           let newImage = UIGraphicsGetImageFromCurrentImageContext()
-           UIGraphicsEndImageContext()
-           
-           return newImage!
-       }
-    // CLLocationManagerDelegate fonksiyonları
-        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            guard let location = locations.last else { return }
-                
-                let userLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                
-                if userMarker == nil {
-                    userMarker = GMSMarker()
-                    userMarker.position = userLocation
-                    userMarker.title = "Mevcut Konum"
-                    userMarker.icon = GMSMarker.markerImage(with: .blue)
-                    userMarker.map = mapView
-                } else {
-                    userMarker.position = userLocation
-            }
-            // Haritayı sadece ilk konum güncellemesinde kullanıcı konumuna odakla
-                if isFirstLocationUpdate {
-                    let camera = GMSCameraPosition.camera(withLatitude: userLocation.latitude, longitude: userLocation.longitude, zoom: 15.0)
-                    mapView.animate(to: camera)
-                    isFirstLocationUpdate = false
-                }
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        // Determine what scale factor to use
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
         }
         
-        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-            print("Konum güncellenemedi: \(error.localizedDescription)")
+        // Create a new rectangle with the new size
+        let rect = CGRect(origin: .zero, size: newSize)
+        
+        // Draw the image in the new size
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    // CLLocationManagerDelegate fonksiyonları
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        
+        let userLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        if userMarker == nil {
+            userMarker = GMSMarker()
+            userMarker.position = userLocation
+            userMarker.title = "Mevcut Konum"
+            userMarker.icon = GMSMarker.markerImage(with: .blue)
+            userMarker.map = mapView
+        } else {
+            userMarker.position = userLocation
         }
+        // Haritayı sadece ilk konum güncellemesinde kullanıcı konumuna odakla
+        if isFirstLocationUpdate {
+            let camera = GMSCameraPosition.camera(withLatitude: userLocation.latitude, longitude: userLocation.longitude, zoom: 10.0)
+            mapView.animate(to: camera)
+            isFirstLocationUpdate = false
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Konum güncellenemedi: \(error.localizedDescription)")
+    }
     // GMSMapViewDelegate fonksiyonları
-       func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-           if let userLocation = locationManager.location?.coordinate {
-               let destination = marker.position
-               drawRoute(from: userLocation, to: destination)
-              }
-           return true
-       }
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        if let userLocation = locationManager.location?.coordinate {
+            let destination = marker.position
+            drawRoute(from: userLocation, to: destination)
+        }
+        return true
+    }
     //Rota çizme
     func drawRoute(from origin: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
         let apiKey = "AIzaSyDxpYVYnvEmLLoVVRpxsPWWR_jWQV6MCFQ"
@@ -284,17 +287,56 @@ class HaritalarSayfasi: UIViewController,CLLocationManagerDelegate,GMSMapViewDel
         
         task.resume()
     }
+    
+    
+    // Polylines ekleyerek rotayı çiz
+    func drawPath(from points: String) {
+        let path = GMSPath(fromEncodedPath: points)
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeColor = .blue
+        polyline.strokeWidth = 4.0
+        polyline.map = mapView
+        // Çizilen polyline'ı sakla
+        currentPolyline = polyline
+    }
+    /*func addEarthquakeRiskZones() {
+        let highRiskEarthquakeZones = [
+            // Kuzey Anadolu Fay Hattı
+                   [CLLocationCoordinate2D(latitude: 40.0, longitude: 30.0),
+                    CLLocationCoordinate2D(latitude: 41.5, longitude: 31.0),
+                    CLLocationCoordinate2D(latitude: 42.0, longitude: 35.0),
+                    CLLocationCoordinate2D(latitude: 41.0, longitude: 39.0),
+                    CLLocationCoordinate2D(latitude: 40.0, longitude: 39.0),
+                    CLLocationCoordinate2D(latitude: 39.0, longitude: 36.0),
+                    CLLocationCoordinate2D(latitude: 39.5, longitude: 33.0)],
+                   
+                   // Doğu Anadolu Fay Hattı
+                   [CLLocationCoordinate2D(latitude: 38.0, longitude: 38.0),
+                    CLLocationCoordinate2D(latitude: 39.0, longitude: 39.5),
+                    CLLocationCoordinate2D(latitude: 40.0, longitude: 41.0),
+                    CLLocationCoordinate2D(latitude: 39.0, longitude: 42.0),
+                    CLLocationCoordinate2D(latitude: 37.5, longitude: 41.0),
+                    CLLocationCoordinate2D(latitude: 37.0, longitude: 39.0)],
+                   
+                   // Batı Anadolu Bölgesi
+                   [CLLocationCoordinate2D(latitude: 38.0, longitude: 26.0),
+                    CLLocationCoordinate2D(latitude: 39.0, longitude: 28.0),
+                    CLLocationCoordinate2D(latitude: 38.5, longitude: 29.0),
+                    CLLocationCoordinate2D(latitude: 37.5, longitude: 28.0),
+                    CLLocationCoordinate2D(latitude: 37.0, longitude: 26.5)]
+        ]
+        
+        for zone in highRiskEarthquakeZones {
+               let path = GMSMutablePath()
+               for coordinate in zone {
+                   path.add(coordinate)
+               }
+               let polygon = GMSPolygon(path: path)
+               polygon.fillColor = UIColor.red.withAlphaComponent(0.4)
+               polygon.strokeColor = .red
+               polygon.strokeWidth = 2
+               polygon.map = mapView
+           }*/
+    }
 
-       
-       // Polylines ekleyerek rotayı çiz
-       func drawPath(from points: String) {
-           let path = GMSPath(fromEncodedPath: points)
-           let polyline = GMSPolyline(path: path)
-           polyline.strokeColor = .blue
-           polyline.strokeWidth = 4.0
-           polyline.map = mapView
-           // Çizilen polyline'ı sakla
-           currentPolyline = polyline
-       }
-   }
 
