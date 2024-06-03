@@ -37,11 +37,7 @@ class GirisSayfasi: UIViewController {
         } catch let error as NSError {
             print(error.description)
         }
-        
-        
-        
     }
-    
     @IBAction func GirisYapButton(_ sender: Any) {
         if TelefonNumarası.text != nil && sifre.text != nil {
             Auth.auth().signIn(withEmail: TelefonNumarası.text!, password: sifre.text!) { data, error in
@@ -53,20 +49,10 @@ class GirisSayfasi: UIViewController {
             }
         }
     }
-    
     @IBAction func kayıtOlButton(_ sender: Any) {
-        if TelefonNumarası.text != nil {
-            Auth.auth().createUser(withEmail: TelefonNumarası.text!, password: sifre.text!) { data, error in
-                if error != nil {
-                    self.alertCreate(titleInput: "Hata", MessageInput: "Tekrar Deneyin")
-                }else {
-                    self.performSegue(withIdentifier: "TabBar", sender: nil)
-                }
-            }
-        }
+        
         
     }
-    
     
     func alert (titleGirdisi : String, MassageGirdisi : String){ //İlk alert (Giris Yapılamadığı zaman çıkar )
         let uyarıMesajı = UIAlertController(title: titleGirdisi, message: MassageGirdisi, preferredStyle: UIAlertController.Style.alert)

@@ -12,12 +12,14 @@ import Firebase
 class AyarlarSayfasi: UIViewController {
 
  
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var surnameTextField: UITextField!
+    @IBOutlet weak var phoneNumber: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        
+        loadProfileData()
 
         // Geri düğmesini özelleştirme
             let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -38,7 +40,30 @@ class AyarlarSayfasi: UIViewController {
     @IBAction func BildirimlerButton(_ sender: Any) {
         performSegue(withIdentifier: "Bildirimler", sender: nil)
     }
-    
-  
+    @IBAction func saveButton(_ sender: Any) {
+        saveProfileData()
+        print("tıklandı")
+        
+    }
+    func saveProfileData() {
+            let name = nameTextField.text ?? ""
+            let surname = surnameTextField.text ?? ""
+            let phoneNumber = phoneNumber.text ?? ""
 
+            UserDefaults.standard.set(name, forKey: "name")
+            UserDefaults.standard.set(surname, forKey: "surname")
+            UserDefaults.standard.set(phoneNumber, forKey: "phoneNumber1")
+        }
+    func loadProfileData() {
+            let name = UserDefaults.standard.string(forKey: "name") ?? ""
+            let surname = UserDefaults.standard.string(forKey: "surname") ?? ""
+            let phoneNumber1 = UserDefaults.standard.string(forKey: "phoneNumber1") ?? ""
+
+            nameTextField.text = name
+            surnameTextField.text = surname
+            phoneNumber.text = phoneNumber1
+        }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { //Klavyenin kapanmasını sağlar
+        self.view.endEditing(true)
+    }
 }

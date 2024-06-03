@@ -12,7 +12,8 @@
 		3C3BB4AB2BF0F22600918F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BB4A82BF0F22600918F68 /* Assets.xcassets */; };
 		3C3BB4AC2BF0F22600918F68 /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BB4A92BF0F22600918F68 /* appstore.png */; };
 		3C3BB4AD2BF0F22600918F68 /* playstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3BB4AA2BF0F22600918F68 /* playstore.png */; };
-		3C7940902C0C916D0029B987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C79408F2C0C916D0029B987 /* GoogleService-Info.plist */; };
+		3C7940902C0C916D0029B987 /* GoogleService-Info1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C79408F2C0C916D0029B987 /* GoogleService-Info1.plist */; };
+		3CB2819D2C0CFB4400AA9F93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CB2819C2C0CFB4400AA9F93 /* GoogleService-Info.plist */; };
 		3CE10AAA2BEA9CC600CF8050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AA92BEA9CC600CF8050 /* AppDelegate.swift */; };
 		3CE10AAC2BEA9CC600CF8050 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AAB2BEA9CC600CF8050 /* SceneDelegate.swift */; };
 		3CE10AAE2BEA9CC600CF8050 /* Anasayfa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE10AAD2BEA9CC600CF8050 /* Anasayfa.swift */; };
@@ -40,7 +41,8 @@
 		3C3BB4A82BF0F22600918F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C3BB4A92BF0F22600918F68 /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
 		3C3BB4AA2BF0F22600918F68 /* playstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playstore.png; sourceTree = "<group>"; };
-		3C79408F2C0C916D0029B987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3C79408F2C0C916D0029B987 /* GoogleService-Info1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info1.plist"; sourceTree = "<group>"; };
+		3CB2819C2C0CFB4400AA9F93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CE10AA62BEA9CC600CF8050 /* ADA1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADA1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE10AA92BEA9CC600CF8050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CE10AAB2BEA9CC600CF8050 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 			path = "AppIcons-5";
 			sourceTree = "<group>";
 		};
+		3C7B872C2C0E1DA700CB184A /* kayitolVC */ = {
+			isa = PBXGroup;
+			children = (
+				3CE10AC02BEA9CE500CF8050 /* KayitOlSayfasi.swift */,
+			);
+			path = kayitolVC;
+			sourceTree = "<group>";
+		};
 		3C8B5D962C0B930000833A3D /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 		3C8B5D972C0B930A00833A3D /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				3C7B872C2C0E1DA700CB184A /* kayitolVC */,
 				3C8B5D982C0B931C00833A3D /* GirisVC */,
 				3C8B5D9A2C0B932F00833A3D /* AnasayfaVC */,
 				3C8B5D9B2C0B934200833A3D /* HazırlıkVC */,
@@ -216,7 +227,8 @@
 				3CE10AB72BEA9CC700CF8050 /* LaunchScreen.storyboard */,
 				3CE10AB52BEA9CC700CF8050 /* Assets.xcassets */,
 				3CE10ABA2BEA9CC700CF8050 /* Info.plist */,
-				3C79408F2C0C916D0029B987 /* GoogleService-Info.plist */,
+				3C79408F2C0C916D0029B987 /* GoogleService-Info1.plist */,
+				3CB2819C2C0CFB4400AA9F93 /* GoogleService-Info.plist */,
 				3CE10AB22BEA9CC600CF8050 /* ADA1.xcdatamodeld */,
 			);
 			path = support;
@@ -247,7 +259,6 @@
 				3C3BB45E2BEFC02F00918F68 /* sound */,
 				3C3BB4A72BF0F22600918F68 /* AppIcons-5 */,
 				3C8B5D962C0B930000833A3D /* view */,
-				3CE10AC02BEA9CE500CF8050 /* KayitOlSayfasi.swift */,
 				3C8B5DA22C0B941500833A3D /* support */,
 			);
 			path = ADA1;
@@ -323,9 +334,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CB2819D2C0CFB4400AA9F93 /* GoogleService-Info.plist in Resources */,
 				3CE10AB92BEA9CC700CF8050 /* LaunchScreen.storyboard in Resources */,
 				3C3BB4AC2BF0F22600918F68 /* appstore.png in Resources */,
-				3C7940902C0C916D0029B987 /* GoogleService-Info.plist in Resources */,
+				3C7940902C0C916D0029B987 /* GoogleService-Info1.plist in Resources */,
 				3C2836232BF97EE500B94DC9 /* banks.xcassets in Resources */,
 				3C3BB4602BEFC02F00918F68 /* AcilDurum.mp3 in Resources */,
 				3CE10AB62BEA9CC700CF8050 /* Assets.xcassets in Resources */,
